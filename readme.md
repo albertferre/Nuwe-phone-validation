@@ -7,10 +7,15 @@ Devuelve true si la cadena pasada concuerda con un número de teléfono válido 
 El usuario puede completar el campo del formulario de la forma que elija, siempre que tenga el formato de un número español válido. Los siguientes ejemplos son de formatos válidos para números españoles (consulte las pruebas a continuación para otras variantes):
 
 972-35-56-57
+
 (972)355-567
+
 972-355-567
+
 972 355 567
+
 972355567
+
 34 972 355 567
 
 Para este desafío se te presentará una cadena como 972355567 o 8oo-six427676;laskdjf. Tu trabajo es validar o rechazar el número de teléfono español basado en cualquier combinación de los formatos proporcionados arriba. El código de área es obligatorio. Si el código de país es proporcionado, debes confirmar que el código de país es 34. Devuelve true si la cadena es un número de teléfono español valido; de lo contrario devuelve false.
