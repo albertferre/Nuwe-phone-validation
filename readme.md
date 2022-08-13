@@ -18,18 +18,19 @@ Para este desafío se te presentará una cadena como 972355567 o 8oo-six427676;l
 ## Solución
 Se ha implementado una función que valida un número de teléfono español a partir de expresiones regulares.
 La expresión regula evalúa:
-1. (opcional) El numero empieza por 34 y puede seguir un espacio o un - | group#1
-2. El numero tiene 3 primeros digitos que pueden estar entre parentesis o no. Después puede venir seguido de un espacio, - o nada | group#2
+1. (opcional) El numero empieza por 34| group#1
+2. El numero tiene 3 primeros digitos que pueden estar entre parentesis o no.  Puede venir seguido o precedido por un espacio, - o nada | group#2
 3. Todos los digitos restantes pueden venir seguidos, en grupos de 2 o en grupos de 3. En caso de venir en grupos irían separados por un espacio o un - | group#5
 
-```^(34[-\s])?((\([0-9]{3}\))[-\s]?|([0-9]{3})[-\s]?)(([0-9]{3}([-\s]?)){2}|([0-9]{2}([-\s]?)){3})```
+```^(34)([-\s]?(\([0-9]{3}\))|[-\s]?([0-9]{3}))((([-\s]?)[0-9]{3}){2}$|(([-\s]?)[0-9]{2}){3}$)```
 ![Expresión regular](img/image.png)
 
-Para comprobar que funciona bien en todos los casos propuestos se ha implementado una batería de tests.
+
 
 ## Cómo probar el código
+Para comprobar que funciona bien en todos los casos propuestos se ha implementado una batería de tests con Pytest
 
-Para preparar en entorno ejecutar el siguiente comando:
+Para preparar el entorno ejecutar el siguiente comando:
 
 ```bash
 conda env create -f env.yaml
@@ -41,4 +42,5 @@ Para ejecutar los tests ejecutar el siguiente comando:
 ```bash
 pytest -v
 ```
+El resultado de los tests se puede ver en la captura siguiente
 ![Expresión regular](img/test.png)

@@ -17,16 +17,16 @@ def phone_validator(phone_number: str) -> bool:
     :return: True if the phone number is valid, False otherwise.
     """
 
-    # Optional starting whit 34 followed by space or -
-    regex_starting_34 = r"^(34[-\s])?"
+    # Optional starting whit 34
+    regex_starting_34 = r"^(34)?"
 
-    # first 3 digits with or without parenthesis followed by space or -
-    regex_first_group_with_parenthesis = r"(\([0-9]{3}\))[-\s]?"
-    regex_first_group_without_parenthesis = r"([0-9]{3})[-\s]?"
+    # first 3 digits with or without parenthesis. It can start with space or -
+    regex_first_group_with_parenthesis = r"[-\s]?(\([0-9]{3}\))"
+    regex_first_group_without_parenthesis = r"[-\s]?([0-9]{3})"
 
     # Remaining digits grouped by 3 or 2 separated by space, - or without separator
-    other_digits_grouped_by_3 = r"([0-9]{3}([-\s]?)){2}"
-    other_digits_grouped_by_2 = r"([0-9]{2}([-\s]?)){3}"
+    other_digits_grouped_by_3 = r"(([-\s]?)[0-9]{3}){2}$"
+    other_digits_grouped_by_2 = r"(([-\s]?)[0-9]{2}){3}$"
 
     regex = (
         f"{regex_starting_34}"
